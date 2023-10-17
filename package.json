@@ -1,0 +1,12 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "my node js journey",
+  "main": "hello.js",
+  "scripts": {
+    "test": "test",
+    "start":"node hello.js"
+  },
+  "author": "kartik",
+  "license": "ISC"
+}

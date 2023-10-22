@@ -2,10 +2,11 @@
   "name": "node",
   "version": "1.0.0",
   "description": "my node js journey",
-  "main": "hello.js",
+  "main": "index.js",
   "scripts": {
     "test": "test",
-    "start":"node hello.js"
+    "hello":"node hello.js",
+    "start":"node index.js"
   },
   "author": "kartik",
   "license": "ISC"

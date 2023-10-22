@@ -1,8 +1,9 @@
 const fs = require("fs")
 //Async call kabhi bhi kisi task ko block nhi karti hai 
+const os = require("os");
+// os provides the information of the computer
 
-ex: 
-
+console.log(os.cpus().length);
 console.log("1");
 
 const result = fs.readFileSync('./test.txt',"utf-8");
@@ -19,3 +20,6 @@ console.log(result);
 });
 
 console.log('2');
+
+//value of threads in a threadpool is fully dependent on the CPU cores
+// for a 8 core the cpu value would be 8 in pool

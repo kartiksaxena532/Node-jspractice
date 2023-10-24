@@ -1,0 +1,7 @@
+Http methods
+GET request is to get information from your server
+POST request is to send information to your server
+PUT request is to update information on your server
+DELETE request is to delete information on your server
+PATCH request is to partially update information on your server
+HEAD request is to get header information from your server

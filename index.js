@@ -27,7 +27,15 @@ const myServer = http.createServer((req,res)=>{
                 const named = myUrl.query.myname;
                 const health = myUrl.query.calories;
                 res.end(`hi ${named} `+"Your health is " + health);
-                break;       
+                break;  
+            case "/signup":
+                if (req.method===GET){
+                    res.end("the user is signing up");
+                }   
+                else if (req.method === POST) {
+                    //DB QUERY
+                    res.end("the user is signing in");
+                }      
             default:
                 res.end("404 not found");
         };

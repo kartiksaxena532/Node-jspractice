@@ -13,11 +13,21 @@ const myServer = http.createServer((req,res)=>{
                 res.end("hello from server again");
                 break;
             case "/about":
-                res.end("About Page");
+                const username = myUrl.query.myname;
+                res.end(`Hi ${username}`);
                 break;
             case "/contact":
                 res.end("Contact Page");
                 break;
+            case "/search":
+                const search = myUrl.query.search_query;
+                res.end("Yeh rahe aapka search result for "+ search);
+                break; 
+            case "/health" :
+                const named = myUrl.query.myname;
+                const health = myUrl.query.calories;
+                res.end(`hi ${named} `+"Your health is " + health);
+                break;       
             default:
                 res.end("404 not found");
         };

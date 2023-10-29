@@ -1,0 +1,11 @@
+we will create 2 types of get function according to the client
+
+1. if cilents are alexa mobile and other devices:
+
+we would use route GET/api/users
+
+
+if the device is the whole computer aliginig with the project so we would create
+GET/users route 
+
+same goes for Patch Post Delete.

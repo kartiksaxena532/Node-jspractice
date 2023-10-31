@@ -4,16 +4,11 @@ const app = express();
 
 const PORT = 8000;
 
-app.get("/api/users",(req,res)=>{
+app.use(express.urlencoded({extended:false})); //like a plugin "MIDDLEWARE"
 
-    return res.json(users);
-    
-    });
-
-// increasing usability for the route path if changed in future.
 
 app
-.route("/api/users/:id")
+.route("/api/users")// increasing usability for the route path if changed in future.
 .get((req,res)=>{
 
     const id = Number(req.params.id);
@@ -22,7 +17,8 @@ app
 })
 
 .post((req,res)=>{
-  
+    const body = req.body;
+    console.log("Body",body) //read notion docs
     return res.json({status : "pending"});
 })
 .patch((req,res)=>{

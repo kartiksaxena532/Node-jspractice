@@ -1,20 +1,24 @@
 const express = require('express');
-const data = require("./MOCK_DATA.json");
+const users = require("./MOCK_DATA.json");
 const app = express();
 
 const PORT = 8000;
 
+app.get("/api/users",(req,res)=>{
 
+    return res.json(users);
+    
+    });
 
 // increasing usability for the route path if changed in future.
 
 app
-.route("/api/data/:id")
+.route("/api/users/:id")
 .get((req,res)=>{
 
     const id = Number(req.params.id);
-    const person = data.find((person)=>person.id === id);
-    return res.json(person);
+    const user = users.find((user)=>user.id === id);
+    return res.json(user);
 })
 
 .post((req,res)=>{

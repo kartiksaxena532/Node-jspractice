@@ -18,11 +18,14 @@ app.get("/api/data",(req,res)=>{
 return res.json(data);
 
 });
+// increasing usability for the route path if changed in future.
+app
+.route("/api/data/:id")
+.get((req,res)=>{});
+.post((req,res)=>{});
+.put((req,res)=>{});
+.delete((req,res)=>{});
 
-app.route("/api/data")
-.get((req,res)=>{
-    return res.json(data);
-})
 
 app.get("/api/data/:id",(req,res)=>{
 

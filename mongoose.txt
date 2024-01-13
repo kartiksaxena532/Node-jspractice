@@ -2,3 +2,12 @@ Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It pr
 schema - define the structure
 schema-model
 using model we do crud operations
+
+scehm banake ke hume kya kiya ki usko leke model
+mongoose.model mein pass kar diya aur usko humne ek
+const user mein store kara liya iske baad ab isse baat
+ki ja sakti hai
+
+//model bana liya 
+
+const User = mongoose.model("user",userScehma);

@@ -52,7 +52,10 @@ app.post("/api/users",(req,res)=>{
 
     }
     ///console.log("Body",body) //read notion docs
-   
+    users.push({...body,id: users.length +1});
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users),(err,data)=>{
+        return res.status(201).json({status : "success" , id :users.length}); //201 is used when new user is created
+    })
     ;
 });
 //routes

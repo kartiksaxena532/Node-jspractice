@@ -1,0 +1,4 @@
+Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a higher-level, schema-based abstraction over the MongoDB JavaScript driver
+schema - define the structure
+schema-model
+using model we do crud operations

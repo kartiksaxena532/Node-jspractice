@@ -1,3 +1,0 @@
-schema - define the structure
-schema-model
-using model we do crud operations

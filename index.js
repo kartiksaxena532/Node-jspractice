@@ -5,7 +5,26 @@ const users = require("./MOCK_DATA.json");
 const app = express();
 
 const PORT = 8000;
+//schema
+const userSchema = new mongoose.Schema({
+first_name:{
+    type:String,
+    unique:true,
+    required:true,
+},
+last_name:{
+type:String,
+required:true,
+},
+id:{
+required:true,
+},
+});
+//model
 
+const kartik = mongoose.model("user",userSchema);
+
+//middleware
 app.use(express.urlencoded({extended:false})); //like a plugin "MIDDLEWARE"
 // increasing usability for the route path if changed in future.
 

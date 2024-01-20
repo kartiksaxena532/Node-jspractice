@@ -12,17 +12,27 @@ mongoose.connect("mongodb://localhost:27017/kartikapp")
 
 const userSchema = new mongoose.Schema({
 first_name:{
-    type:String,
-    unique:true,
-    required:true,
+    type: String,
+    required: true,
 },
 last_name:{
-
-type:String,
-
-required:true,
+    type: String,
+    required: true,
 },
+email:{
+    type: String,
+    required: true,
+    unique:true,
+},
+job_title:{
+    type:String,
+    required: true,
+},
+gender:{
+    type:String,
+}
 });
+
 //model
 
 const kartik = mongoose.model("user",userSchema);
@@ -32,28 +42,42 @@ const kartik = mongoose.model("user",userSchema);
 app.use(express.urlencoded({extended:false})); //like a plugin "MIDDLEWARE"
 // increasing usability for the route path if changed in future.
 
-app.get("/api/users/:id",(req,res)=>{
+app.get("/api/users",(req,res)=>{
     res.setHeader("X-myname","Kartik saxena");
     //Always use X in custom headers to make the agent realize that it is a custim header 
     //not a default header good practice
-    const id = Number(req.params.id);
-    const user = users.find((user)=>user.id === id);
+    return res.json(users);
 
-    if(!user){
-        return res.status(404).json ({error:"user does not exist"});
-    }
-    return res.json(user);
 })
 
-app.post("/api/users",(req,res)=>{
+app.post("/api/users",async(req,res)=>{
     const body = req.body;
-    if(!body.first_name || !body.last_name ||!body.email ||!body.ip_address || !body.gender){
+    if(!body.first_name || !body.last_name ||!body.email ||!body.job_title || !body.gender){
         return res.status(400).json({msg: "All feilds are necessary.."});
 
     }
     ///console.log("Body",body) //read notion docs
-   
-    ;
+    //creating a user (kartik) 
+const result =  await kartik.create({
+first_name: body.first_name,
+last_name: body.last_name,
+email: body.email,
+job_title: body.job_title,
+gender : body.gender,
+
+    });
+    console.result("result",result);
+return res.status(201).json({msg:"success"});
+
+});
+app.get("/users",(req,res)=>{
+const html=`
+<ul>
+${users.map((user)=>`<li>${user.first_name}</li>`).join("")}
+</ul>
+`;
+res.send(html);
+
 });
 //routes
 

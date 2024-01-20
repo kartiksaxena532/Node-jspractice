@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require("fs");
 const mongoose = require("mongoose");
-const users = require("./MOCK_DATA.json");
 const app = express();
 
 const PORT = 8000;
@@ -42,11 +41,12 @@ const kartik = mongoose.model("user",userSchema);
 app.use(express.urlencoded({extended:false})); //like a plugin "MIDDLEWARE"
 // increasing usability for the route path if changed in future.
 
-app.get("/api/users",(req,res)=>{
+app.get("/api/users",async(req,res)=>{
+    const allDbusers=await kartik.find({});
     res.setHeader("X-myname","Kartik saxena");
     //Always use X in custom headers to make the agent realize that it is a custim header 
     //not a default header good practice
-    return res.json(users);
+    return res.json(allDbusers);
 
 })
 
@@ -70,10 +70,11 @@ gender : body.gender,
 return res.status(201).json({msg:"success"});
 
 });
-app.get("/users",(req,res)=>{
+app.get("/users",async(req,res)=>{
+    const allDbusers=await kartik.find({});
 const html=`
 <ul>
-${users.map((user)=>`<li>${user.first_name}</li>`).join("")}
+${allDbusers.map((user)=>`<li>${user.first_name}-${user.email}</li>`).join("")}
 </ul>
 `;
 res.send(html);

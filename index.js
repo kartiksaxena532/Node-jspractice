@@ -73,9 +73,9 @@ return res.status(201).json({msg:"success"});
 app.get("/users",async(req,res)=>{
     const allDbusers=await kartik.find({});
 const html=`
-<ul>
+<ol>
 ${allDbusers.map((user)=>`<li>${user.first_name}-${user.email}</li>`).join("")}
-</ul>
+</ol>
 `;
 res.send(html);
 

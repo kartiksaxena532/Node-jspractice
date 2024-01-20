@@ -11,3 +11,11 @@ ki ja sakti hai
 //model bana liya 
 
 const User = mongoose.model("user",userScehma);
+//create a new instance of the model
+//
+
+connection using MOONGOOSE with the mongodb 
+schema banao 
+model banao 
+aur then perform crud operations 
+//path sahi se likhoo "/api/users/:id"

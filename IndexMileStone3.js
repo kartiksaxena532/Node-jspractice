@@ -31,8 +31,10 @@ job_title:{
 },
 gender:{
     type:String,
-}
-});
+},
+},
+{timestamps:true}
+);
 
 //model
 
